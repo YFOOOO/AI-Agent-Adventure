@@ -19,10 +19,10 @@
 
 ## 🗂️ 智能体案例
 
-| 项目名称 | 核心模式 | 简介 | 路径 |
-| :--- | :--- | :--- | :--- |
-| **旅行智能助手** | **ReAct** | 理解自然语言，调用搜索与天气工具规划行程 | [`Datawhale Hello Agents/...`](Datawhale%20Hello%20Agents/repo/1.3%20动手体验/) |
-| **数据可视化智能体** | **Reflection** | 自动生成代码绘图，并利用多模态模型进行视觉反思与优化 | [`Agentic AI/...`](Agentic%20AI（DeepLearning）/repo/M2_UGL_1/) |
+| 项目名称 | 核心模式 | 简介 |
+| :--- | :--- | :--- |
+| [**旅行智能助手**](Datawhale%20Hello%20Agents/repo/第一个智能体/) | **ReAct** | 理解自然语言，调用搜索与天气工具规划行程 |
+| [**数据可视化智能体**](Agentic%20AI（DeepLearning）/repo/M2_UGL_1/) | **Reflection** | 自动生成代码绘图，并利用多模态模型进行视觉反思与优化 |
 
 ## 📂 项目结构
 
@@ -38,7 +38,7 @@ AI Agent Adventure/
 ├── Datawhale Hello Agents/          # Datawhale 开源教程实践
 │   ├── 实践日志/                    # 学习笔记
 │   └── repo/                        
-│       └── 1.3 动手体验/            # 旅行智能助手 (ReAct Pattern)
+│       └── 第一个智能体/            # 旅行智能助手 (ReAct Pattern)
 │           ├── travel_agent_demo.ipynb
 │           └── agent/               # 重构版实现
 │

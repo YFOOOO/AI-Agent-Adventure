@@ -50,6 +50,9 @@ images/*.tmp
 # *.parquet
 # *.sqlite
 
+# Temporarily ignore docs for initial upload
+docs/
+
 # Coverage
 htmlcov/
 .pytest_cache/

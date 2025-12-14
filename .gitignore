@@ -1,0 +1,62 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+# Thumbnails
+._*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Environments
+.env
+.venv
+venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb-meta
+# Optional: large notebook output caches
+**/.jupyter_cache/
+
+# Logs & temp
+*.log
+*.tmp
+*.swp
+
+# VS Code
+.vscode/
+.code-workspace
+
+# Node
+node_modules/
+
+# Build & dist
+build/
+dist/
+*.egg-info/
+
+# Images cache
+images/*.tmp
+
+# Data (optional: uncomment if large or private)
+# data/
+# *.csv
+# *.parquet
+# *.sqlite
+
+# Coverage
+htmlcov/
+.pytest_cache/
+.coverage*
+
+# Terraform, Docker, etc. (if any)
+.terraform/
+**/.terraform/
+**/terraform.tfstate*
+Dockerfile.*.tmp

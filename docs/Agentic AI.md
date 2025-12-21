@@ -76,3 +76,78 @@
 | **2. 防御性解析逻辑**<br>LLM 的输出格式极不稳定（如 JSON 中嵌套代码、Markdown 格式缺失）。必须编写鲁棒的正则解析代码（Regex Parsing）和兜底机制（Fallback），不能假设模型总是完美遵循指令。 | **2. 永远不要信任模型的输出**<br>在工程实现中，要把 LLM 当作一个“不可靠的组件”。通过多层 `try-except`、灵活的正则匹配甚至重试机制，来消化模型输出的随机性，保证 Agent 运行时的稳定性。 |
 | **3. 统一客户端封装**<br>通过自定义 `OpenAICompatibleClient` 类，抹平了不同模型厂商（阿里、智谱）在 API 调用上的细微差异。这使得在代码中切换模型就像修改配置字符串一样简单。 | **3. 基础设施解耦**<br>将模型调用层与业务逻辑层分离。当需要测试新模型或切换供应商时，无需修改核心业务代码。这种低耦合的架构设计对于快速迭代和降低迁移成本至关重要。 |
 
+## Agent 前沿
+
+**核心结论：**  
+MAS 的不同架构与模式可以分为 **Workflow、Agent、Claude Skill、Claude Deep Research、LangGraph Deep Agent** 等几类。它们分别解决了 **稳定性 vs 灵活性** 的矛盾，演进路径清晰。以下报告基于官方与 GitHub 仓库文档重新整理。
+
+---
+
+🧩 MAS 架构模式详解
+
+### 1. **Workflow 模式**
+- **结构**：任务逻辑由开发者显式编排成有向图（DAG）。  
+- **优点**：稳定、可控，适合固定流程。  
+- **缺点**：灵活性不足。  
+- **应用场景**：报表生成、数据清洗。  
+
+---
+
+### 2. **Agent 模式**
+- **结构**：由大模型驱动，运行工具循环以达成目标。  
+- **优点**：灵活、上限高，可处理复杂任务。  
+- **缺点**：稳定性差，可能出现幻觉。  
+- **应用场景**：探索性任务、跨领域问题。  
+
+---
+
+### 3. **Claude Skill 模式**
+- **结构**：Skill 是文件夹，包含 `SKILL.md`、脚本和资源，用于封装业务知识。  
+- **特点**：  
+  - 模块化、可复用  
+  - 渐进式披露（progressive disclosure），按需加载上下文  
+- **应用场景**：文档处理、行业知识封装、API 调用。  
+- **参考文档**：  
+  - [Claude Skills 官方 GitHub 仓库](https://github.com/Claude-Skills-Org/skills-main)  
+
+---
+
+### 4. **Claude Deep Research 模式**
+- **结构**：主代理自动拆解复杂问题，生成子任务；子代理并行执行，最后汇总为研究报告。  
+- **特点**：  
+  - 自动化研究，跨领域信息整合  
+  - 输出结构化、带引用  
+- **应用场景**：学术研究、市场调研、战略分析。  
+- **参考文档**：  
+  - [Claude Deep Research GitHub 仓库](https://github.com/mcherukara/Claude-Deep-Research)  
+  - [Anthropic 官方开发指南](https://www.anthropic.com/learn/build-with-claude)  
+
+---
+
+### 5. **LangGraph Deep Agent 主次代理模式**
+- **结构**：  
+  - **Main Agent**：负责全局规划与调度  
+  - **Sub Agents**：负责上下文隔离、并行执行、专业分工  
+  - 支持文件系统、长期记忆、上下文压缩  
+- **特点**：  
+  - 长时间运行稳定  
+  - 复杂任务可分解、并行处理  
+- **应用场景**：长周期任务（如旅行规划、跨平台数据整合）、多工具调用场景。  
+- **参考文档**：  
+  - [LangChain Deep Agents GitHub 仓库](https://github.com/langchain-ai/deepagents)  
+  - [LangChain Deep Agents Quickstarts](https://github.com/langchain-ai/deepagents-quickstarts)  
+  - [LangChain 官方文档](https://docs.langchain.com/oss/python/deepagents/overview)  
+
+---
+
+### 📊 对比总结
+
+| 模式 | 核心结构 | 优势 | 局限 | 典型场景 |
+|------|----------|------|------|----------|
+| **Workflow** | 有向图流程 | 稳定、可控 | 灵活性不足 | 固定流程任务 |
+| **Agent** | LLM + 工具循环 | 灵活、上限高 | 稳定性差 | 探索性任务 |
+| **Claude Skill** | 模块化技能文件 | 可复用、上下文管理优雅 | 依赖触发准确率 | 行业知识封装 |
+| **Claude Deep Research** | 主代理 + 并行子任务 | 自动化研究、结构化报告 | 耗时长、依赖模型能力 | 学术/市场研究 |
+| **LangGraph Deep Agent** | 主次代理架构 | 长期运行稳定、上下文隔离 | 架构复杂、开发成本高 | 长周期复杂任务 |
+
+---

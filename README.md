@@ -99,7 +99,7 @@ jupyter notebook
 本项目采用三阶段开发流程：
 
 1️⃣ **知识内化 (`docs.md`)**
-记录技术依赖、API 配置、核心原理（如 ReAct 范式）
+- 记录技术依赖、API 配置、核心原理（如 ReAct 范式）
 
 2️⃣ **架构设计 (`spec.md`)**
 - System Prompt 定义
@@ -125,7 +125,7 @@ jupyter notebook
 
 ## 🔮 未来计划
 
-- [ ] 实现 Planning Pattern (规划模式)
+- [x] 实现 Planning Pattern (规划模式)
 - [ ] Multi-Agent 协作系统
 - [ ] 工具函数自动注册机制
 

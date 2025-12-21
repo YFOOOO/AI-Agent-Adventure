@@ -1,7 +1,7 @@
 # 学习日志：Datawhale Hello Agent - 5分钟实现第一个智能体
 
 **日期**: 2025-12-13
-**来源**: [Datawhale Hello Agent - 1.3 动手体验](https://datawhalechina.github.io/hello-agents/#/./chapter1/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%88%9D%E8%AF%86%E6%99%BA%E8%83%BD%E4%BD%93?id=_13-%e5%8a%a8%e6%89%8b%e4%bd%93%e9%aa%8c%ef%bc%9a5-%e5%88%86%e9%92%9f%e5%ae%9e%e7%8e%b0%e7%ac%ac%e4%b8%80%e4%b8%aa%e6%99%ba%e8%83%bd%e4%bd%93)
+**来源**: [Datawhale Hello Agent - 1.3 动手体验（在线预览）](https://datawhalechina.github.io/hello-agents/#/./chapter1/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E5%88%9D%E8%AF%86%E6%99%BA%E8%83%BD%E4%BD%93?id=_13-%e5%8a%a8%e6%89%8b%e4%bd%93%e9%aa%8c%ef%bc%9a5-%e5%88%86%e9%92%9f%e5%ae%9e%e7%8e%b0%e7%ac%ac%e4%b8%80%e4%b8%aa%e6%99%ba%e8%83%bd%e4%bd%93)
 
 ## 1. 项目概述
 今天完成了第一个基于 **ReAct (Reasoning + Acting)** 范式的智能体——“智能旅行助手”。该智能体能够理解用户自然语言请求，自主规划任务，调用外部工具查询天气和搜索景点，最终给出旅行建议。

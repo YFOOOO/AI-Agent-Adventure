@@ -52,6 +52,7 @@ images/*.tmp
 
 # Temporarily ignore docs for initial upload
 docs/
+My agents/
 
 # Coverage
 htmlcov/
